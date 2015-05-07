@@ -1,5 +1,5 @@
 /**
- * creates a matrixtable instance in the specified div consisting of a NxM matrix 
+ * creates a matrixtable instance in the specified div consisting of a NxM matrix
  * @param {Object} divId The id of the div where the matrixtable will go
  */
 function createMatrixTable(divId){
@@ -9,12 +9,12 @@ function createMatrixTable(divId){
 	matrixTable.setAttribute("class", "MatrixTable");
 	outerDiv.appendChild(matrixTable);
 	matrixTable.columns = 0;
-	
+
 	/**
 	* Sets the number of rows in the table
 	* @param {Integer} sz The number of content rows in the matrixtable
 	*/
-	matrixTable.setRowSize = function(sz) { 
+	matrixTable.setRowSize = function(sz) {
 		if (sz > 0) {
 			if (sz > matrixTable.rows.length - 1) {
 				while (matrixTable.rows.length - 1 < sz) {
@@ -23,7 +23,7 @@ function createMatrixTable(divId){
 					for (var ci = 0; ci < matrixTable.columns; ci++) {
 						var c = r.insertCell(r.cells.length - 1);
 						c.setAttribute("class","MatrixTableCell");
-					} 
+					}
 				}
 			}
 			else if (sz < matrixTable.rows.length - 1) {
@@ -33,7 +33,7 @@ function createMatrixTable(divId){
 			}
 		}
 	}
-	
+
 	/**
 	* Sets the number of columns in the table
 	* @param {Integer} sz The number of content columns in the matrixtable
@@ -71,11 +71,11 @@ function createMatrixTable(divId){
 			}
 		}
 	}
-	
+
 	/**
 	* Sets headers for the columns
 	* @param {Array} hd An array of html data that will be set as the content of the headers
-	*/ 
+	*/
 	matrixTable.setColumnHeaders = function(hd){
 		if (hd.length <= matrixTable.columns) {
 			var th = matrixTable.createTHead();
@@ -85,19 +85,19 @@ function createMatrixTable(divId){
 			}
 		}
 	}
-	
+
 	/**
 	* Sets a header for the specified column
 	* @param {Integer} c The column for which to set the column header
 	* @param {String} hd The html data that will be set as the content of the header for the specified column
-	*/ 
+	*/
 	matrixTable.setColumnHeader = function(c,hd){
 		if (c >= 0 && c < matrixTable.columns) {
 			var th = matrixTable.createTHead();
 			th.rows[0].cells[c].innerHTML = hd;
 		}
 	}
-	
+
 	/**
 	* Sets the content of a cell
 	* @param {Integer} r The row that the cell is in
@@ -112,7 +112,13 @@ function createMatrixTable(divId){
 			}
 		}
 	}
-	
+
+	/**
+	* Sets the content of a cell
+	* @param {Integer} r The row that the cell is in
+	* @param {Integer} c The column that the cell is in
+	* @param {Object} cnt The object that will be set as the content of the specified cell
+	*/
 	matrixTable.setCellObjectContent = function(r,c,cnt) {
 		if (r >= 0 && r < matrixTable.rows.length - 1) {
 			var ro = matrixTable.rows[r + 1];
@@ -121,7 +127,7 @@ function createMatrixTable(divId){
 			}
 		}
 	}
-	
+
 	/**
 	* Sets the content of a row
 	* @param {Integer} r The row whose content will be set
@@ -135,7 +141,7 @@ function createMatrixTable(divId){
 			}
 		}
 	}
-	
+
 	/**
 	* Sets the content of a column
 	* @param {Integer} c The column whose content will be set
@@ -149,20 +155,19 @@ function createMatrixTable(divId){
 			}
 		}
 	}
-	
+
 	/**
-	* Sets the style of the Table 
+	* Sets the style of the Table
 	* @param {Object} stl The object containing an associative array of styles to be set on the Table
 	*/
 	matrixTable.setTableStyle = function(stl){
-		alert("this was called");
 		for (var nm in stl) {
 			matrixTable.style.setProperty(nm,stl[nm],"");
 		}
 	}
-	
+
 	/**
-	* Sets the style of the Row 
+	* Sets the style of the Row
 	* @param {Integer} r The row whose style will be set
 	* @param {Object} stl The object containing an associative array of styles to be set on the cells in the specified row
 	*/
@@ -177,9 +182,9 @@ function createMatrixTable(divId){
 			}
 		}
 	}
-	
+
 	/**
-	* Sets the style of the Column 
+	* Sets the style of the Column
 	* @param {Integer} c The column whose style will be set
 	* @param {Object} stl The object containing an associative array of styles to be set on the cells in the specified column
 	*/
@@ -194,9 +199,9 @@ function createMatrixTable(divId){
 			}
 		}
 	}
-	
+
 	/**
-	* Sets the style of the Cell 
+	* Sets the style of the Cell
 	* @param {Integer} r The row that the cell is in
 	* @param {Integer} c The column that the cell is in
 	* @param {Object} stl The object containing an associative array of styles to be set on the specified cell
@@ -212,7 +217,7 @@ function createMatrixTable(divId){
 			}
 		}
 	}
-	
+
 	/**
 	* Shows the column headers if set to true (default is false)
 	* @param {Boolean} sw The boolean value to set on the showColumnHeaders flag
@@ -226,7 +231,7 @@ function createMatrixTable(divId){
 			tr.style.display = "none";
 		}
 	}
-	
+
 	/**
 	* Shows the row if set to true, and hides it otherwise (default is true)
 	* @param {Boolean} sw The boolean value to set on the showRow flag
@@ -238,10 +243,10 @@ function createMatrixTable(divId){
 				ro.style.display = "";
 			} else {
 				ro.style.display = "none";
-			}	
+			}
 		}
 	}
-	
+
 	/**
 	* Shows the column if set to true, and hides it otherwise (default is true)
 	* @param {Boolean} sw The boolean value to set on the showColumn flag
@@ -255,11 +260,11 @@ function createMatrixTable(divId){
 					ce.style.display = "";
 				} else {
 					ce.style.display = "none";
-				}	
+				}
 			}
 		}
 	}
-	
+
 	/**
 	 * Destroy the this matrixtable
 	 */
@@ -267,7 +272,7 @@ function createMatrixTable(divId){
 		outerDiv.removeChild(matrixTable);
 		matrixTable = null;
 	}
-	
+
 	matrixTable.setRowSize(1);
 	matrixTable.setColumnSize(1);
 	matrixTable.showColumnHeaders(false);
