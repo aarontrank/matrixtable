@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript" src="matrixtable.js"></script>
+<script type="text/javascript">
+function doOnLoad(){
+	myTable = createMatrixTable("tableDiv");
+	myTable.setRowSize(5);
+	myTable.setColumnSize(5);
+	myTable.setRowContent(0, ["a","b","c","d","e"]);
+	myTable.setCellContent(1,0,"5");
+	myTable.setCellContent(1,1,"6");
+	myTable.setCellContent(1,2,"7");
+	myTable.setCellContent(1,3,"8");
+	myTable.setCellContent(1,4,"9");
+	myTable.setCellContent(2,0,"10");
+	myTable.setCellContent(2,1,"11");
+	myTable.setCellContent(2,2,"12");
+	myTable.setCellContent(2,3,"13");
+	myTable.setCellContent(2,4,"14");
+	myTable.setCellContent(3,0,"15");
+	myTable.setCellContent(3,1,"16");
+	myTable.setCellContent(3,2,"17");
+	myTable.setCellContent(3,3,"18");
+	myTable.setCellContent(3,4,"19");
+	myTable.setCellContent(4,0,"20");
+	myTable.setCellContent(4,1,"21");
+	myTable.setCellContent(4,2,"22");
+	myTable.setCellContent(4,3,"23");
+	myTable.setCellContent(4,4,"24");
+	myTable.setColumnContent(3,["Q","W","E","R","T"]);
+	myTable.setColumnHeaders(["Z","X","C","V","B"]);
+	myTable.showColumnHeaders(true);
+	myTable.setRowStyle(2, {"background-color":"red","color":"blue"});
+	myTable.setColumnStyle(0, {"background-color":"blue","color":"red"});
+	myTable.setCellStyle(1,2, {"background-color":"black","color":"white"});
+	myTable.setRowStyle(2, {"background-color":"red","color":"blue"});
+	myTable.setTableStyle({"font-size":"large"});
+}
+</script>
+<link rel="stylesheet" type="text/css" href="matrixtable.css" />
+</head>
+<body onload="javascript:doOnLoad();">
+<div id="tableDiv"></div>
+</body>
+</html>
